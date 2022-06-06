@@ -1,0 +1,52 @@
+事件
+    MapInitializationEvent
+条件
+动作
+    SetVariable
+        数组: roles
+            常量: 1
+        变量: gg_unit_H000_0009
+    SetVariable
+        数组: roles
+            常量: 2
+        变量: gg_unit_H001_0010
+    SetVariable
+        数组: roles
+            常量: 3
+        变量: gg_unit_H002_0008
+    SetVariable
+        数组: roles
+            常量: 4
+        变量: gg_unit_H003_0011
+    SetVariable
+        数组: roles
+            常量: 5
+        变量: gg_unit_H004_0012
+    SetVariable
+        数组: roles
+            常量: 6
+        变量: gg_unit_H005_0013
+    SetVariable
+        数组: roles
+            常量: 7
+        变量: gg_unit_H006_0014
+    SetVariable
+        数组: roles
+            常量: 8
+        变量: gg_unit_H007_0015
+    SetVariable
+        数组: roles
+            常量: 9
+        变量: gg_unit_H008_0016
+    SetVariable
+        数组: roles
+            常量: 10
+        变量: gg_unit_H009_0017
+    SetVariable
+        数组: roles
+            常量: 11
+        变量: gg_unit_H00A_0018
+    SetVariable
+        数组: roles
+            常量: 12
+        变量: gg_unit_H00B_0019

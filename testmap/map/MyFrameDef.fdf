@@ -1,0 +1,1119 @@
+IncludeFile "UI\FrameDef\UI\EscMenuTemplates.fdf",
+IncludeFile "UI\FrameDef\Glue\StandardTemplates.fdf",
+IncludeFile "UI\FrameDef\Glue\BattleNetTemplates.fdf",
+
+
+Frame "TEXT" "MyResourceTextTemplate"{
+	DecorateFileNames,
+	Height 0.01640625,
+	FontJustificationH JUSTIFYLEFT,
+	FontJustificationV JUSTIFYMIDDLE,
+	Font "MasterFont",0.01,
+	TextLength 8,
+	FontColor 0.99 0.827 0.0705 1.0,
+}
+
+Frame "BACKDROP" "BLACK" {
+	BackdropBackground  "img\black.blp",
+}
+
+//=====================tooltip 右下角弹出技能说明===================
+Frame "TEXT" "myTootip1"{
+	Width 0.2,
+
+	DecorateFileNames,
+	FontFlags "FIXEDSIZE",
+	FrameFont "MasterFont", 0.011, "",
+	FontJustificationH JUSTIFYLEFT,
+	FontJustificationV JUSTIFYTOP,
+}
+
+//背景框- icon
+Frame "BACKDROP" "myTooltipDrop1"{
+	Width 0.213,
+	BackdropTileBackground,
+	BackdropBackground  "UI\Widgets\ToolTips\Human\human-tooltip-background.blp",
+	BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+	BackdropCornerSize  0.010,
+	BackdropBackgroundSize  0.032,
+	BackdropBackgroundInsets 0.003f 0.003f 0.003f 0.003f,
+	BackdropEdgeFile  "UI\Widgets\ToolTips\Human\human-tooltip-border.blp",
+	BackdropBlendAll,
+
+	//title
+	Frame "TEXT" "myTooltipName1"{
+		Width 0.21,
+		Height 0.01,
+		SetPoint TOP, "myTooltipDrop1", TOP, 0.002,-0.006,
+
+        DecorateFileNames,
+		FontFlags "FIXEDSIZE",
+		FrameFont "MasterFont", 0.012, "",
+		FontJustificationH JUSTIFYLEFT,
+		FontJustificationV JUSTIFYTOP,
+	}
+
+	//icon1
+	Frame "BACKDROP" "myTooltipIcon1"{
+		Width 0.01,
+		Height 0.01,
+		BackdropBlendAll,
+		BackdropBackground "img\ui\gold.blp",
+		SetPoint TOPLEFT, "myTooltipName1", TOPLEFT, 0,-0.018,
+
+		Frame "TEXT" "myTooltipIconValue1"{
+			Width 0.1,
+			Height 0.01,
+
+			DecorateFileNames,
+			FontFlags "FIXEDSIZE",
+			FrameFont "MasterFont", 0.01, "",
+			SetPoint TOPLEFT, "myTooltipIcon1", TOPLEFT, 0.013,0.001,
+		}
+	}
+
+	//icon2
+	Frame "BACKDROP" "myTooltipIcon2"{
+		Width 0.01,
+		Height 0.01,
+		BackdropBlendAll,
+		BackdropBackground "img\ui\gold.blp",
+		SetPoint TOPLEFT, "myTooltipName1", TOPLEFT, 0.04,-0.018,
+
+		Frame "TEXT" "myTooltipIconValue2"{
+			Width 0.1,
+			Height 0.01,
+
+			DecorateFileNames,
+			FontFlags "FIXEDSIZE",
+			FrameFont "MasterFont", 0.01, "",
+			SetPoint TOPLEFT, "myTooltipIcon2", TOPLEFT, 0.013,0.001,
+		}
+	}
+
+	//icon3
+	Frame "BACKDROP" "myTooltipIcon3"{
+		Width 0.01,
+		Height 0.01,
+		BackdropBlendAll,
+		BackdropBackground "img\ui\gold.blp",
+		SetPoint TOPLEFT, "myTooltipName1", TOPLEFT, 0.08,-0.018,
+
+		Frame "TEXT" "myTooltipIconValue3"{
+			Width 0.1,
+			Height 0.01,
+
+			DecorateFileNames,
+			FontFlags "FIXEDSIZE",
+			FrameFont "MasterFont", 0.01, "",
+			SetPoint TOPLEFT, "myTooltipIcon3", TOPLEFT, 0.013,0.001,
+		}
+	}
+}
+
+Frame "BACKDROP" "myTooltipDrop2"{
+
+}
+
+//right buttons 右侧按钮
+Frame "TEXTBUTTON" "myUiButton"{
+	Width 0.04,
+	Height 0.02,
+	ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+
+	
+    ControlBackdrop "myUiButtonDrop",
+    Frame "BACKDROP" "myUiButtonDrop"
+    {
+		SetAllPoints,
+        BackdropBackground "img\ui\bank\btn.blp",
+        BackdropBlendAll,
+    }
+
+	ControlMouseOverHighlight "myUiButtonHig",
+	Frame "HIGHLIGHT" "myUiButtonHig" {
+		HighlightType "FILETEXTURE",
+        HighlightAlphaFile "UI\Widgets\EscMenu\Human\quest-button-highlight.blp",
+        HighlightAlphaMode "ADD",
+    }
+
+	ButtonText "myUiButtonText",
+	Frame "TEXT" "myUiButtonText"{
+		SetAllPoints,
+
+        DecorateFileNames,
+        FrameFont "MasterFont", 0.011, "",
+        FontJustificationH JUSTIFYCENTER,
+        FontJustificationV JUSTIFYMIDDLE,
+
+        FontFlags "FIXEDSIZE",
+        FontColor 1.0 1.0 1.0 1.0,
+        FontHighlightColor 1.0 1.0 1.0 1.0,
+        FontDisabledColor 0.2 0.2 0.2 1.0,
+        FontShadowColor 0.0 0.0 0.0 0.9,	
+        FontShadowOffset 0.001 -0.001,	
+        Text "   背  包",
+    }
+}
+
+//=====================bank  银行=======================
+Frame "SIMPLEFRAME" "myBank"{
+	Width 0.28,
+	Height 0.28,
+
+	Texture "myBankDrop"{
+		SetAllPoints,
+		File "img\ui\bank\bank.blp",
+	}
+}
+
+//bank text
+Frame "TEXT" "myBankWord1"  {
+	Width 0.28,
+	Height 0.1,
+	DecorateFileNames,
+	FontColor 0.99 0.827 0.0705 1.0,
+	FrameFont "MasterFont", 0.011, "",
+	FontShadowColor 0.0 0.0 0.0 0.9,	
+    FontShadowOffset 0.001 -0.001,	
+}
+
+Frame "TEXT" "myBankWord2" {
+	Width 0.2,
+	DecorateFileNames,
+	FontColor 0.99 0.827 0.0705 1.0,
+	FontFlags "FIXEDSIZE",
+	FrameFont "MasterFont", 0.009, "",
+	FontShadowColor 0.0 0.0 0.0 0.9,	
+    FontShadowOffset 0.001 -0.001,	
+	FontJustificationH JUSTIFYLEFT,
+	FontJustificationV JUSTIFYTOP,
+}
+
+//bank button
+Frame "TEXTBUTTON" "myBankBtn"{
+	Width 0.05,
+	Height 0.02,
+
+	ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+
+	ControlBackdrop "myBankBtnDrop",
+    Frame "BACKDROP" "myBankBtnDrop"
+    {
+		SetAllPoints,
+        BackdropBackground "img\ui\bank\btn.blp",
+        BackdropBlendAll,
+    }
+
+	ControlMouseOverHighlight "myBankBtn_Hig",
+	Frame "HIGHLIGHT" "myBankBtn_Hig" {
+        HighlightType "FILETEXTURE",
+        HighlightAlphaFile "UI\Widgets\EscMenu\Human\quest-button-highlight.blp",
+        HighlightAlphaMode "ADD",
+    }
+
+	ButtonText "myBankBtnText",
+	Frame "TEXT" "myBankBtnText" INHERITS "EscMenuButtonTextTemplate"{
+		SetAllPoints,
+		DecorateFileNames,
+		FontJustificationOffset 0.0 0,
+		FontHighlightColor 0.99 0.827 0.0705 1.0,
+		FrameFont "MasterFont", 0.010, "",
+	}
+}
+
+//=====================backpack  背包===================
+
+//backpack
+Frame "SIMPLEFRAME" "myBackp"{
+	Width 0.28,
+	Height 0.28,
+
+	Texture "myBackpDrop"{
+		SetAllPoints,
+		File "img\ui\backp\backp.blp",
+	}
+}
+
+//backpack title
+Frame "TEXT" "myBackpackTitle" INHERITS "EscMenuButtonTextTemplate" {
+	Width 0.28,
+	Height 0.1,
+	FontJustificationV JUSTIFYTOP,
+}
+
+//bcakpack cell
+Frame "SIMPLEFRAME" "myBackpBtn"{
+	Width 0.02,
+	Height 0.02,
+	UseHighlight "UpperMenuButtonHighlight",
+
+	Texture "myBackpBtnDrop"{
+		SetAllPoints,
+		File "img\alpha.blp",
+	}
+}
+
+//backpack cell button
+Frame "TEXTBUTTON" "myBackpBtnButton"{
+	Width 0.02,
+	Height 0.02,
+
+	ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+
+	//悬停鼠标高亮
+	ControlMouseOverHighlight "myBackpBtnButton_Hig",
+	Frame "HIGHLIGHT" "myBackpBtnButton_Hig" {
+        HighlightType "FILETEXTURE",
+        HighlightAlphaFile "UI\Widgets\EscMenu\Human\quest-button-highlight.blp",
+        HighlightAlphaMode "ADD",
+    }
+
+	ButtonText "myBackpBtnText",
+	Frame "TEXT" "myBackpBtnText"{
+		SetAllPoints,
+		DecorateFileNames,
+		FrameFont "MasterFont", 0.011, "",
+		FontJustificationH JUSTIFYRIGHT,
+		FontJustificationV JUSTIFYBOTTOM,    
+		FontFlags "FIXEDSIZE",
+		FontColor 1.0 1.0 1.0 1.0,
+		FontHighlightColor 1.0 1.0 1.0 1.0,
+		FontDisabledColor 0.2 0.2 0.2 1.0,
+		FontShadowColor 0.0 0.0 0.0 0.9,	
+		FontShadowOffset 0.001 -0.001,	
+	}
+}
+
+//backpack closeButton
+Frame "BUTTON" "myBackpBtnClose"{
+	Width 0.013,
+	Height 0.014,
+
+	ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+	
+	ControlBackdrop "myBackpBtnCloseDrop",
+    Frame "BACKDROP" "myBackpBtnCloseDrop"
+    {
+        BackdropBackground  "ReplaceableTextures\CommandButtons\BTNCancel.blp",
+        BackdropBlendAll,
+    }
+
+	ControlMouseOverHighlight "myBackpBtnCloseHig",
+	Frame "HIGHLIGHT" "myBackpBtnCloseHig" {
+        HighlightType "FILETEXTURE",
+        HighlightAlphaFile "UI\Widgets\EscMenu\Human\quest-button-highlight.blp",
+        HighlightAlphaMode "ADD",
+    }
+}
+
+//backppack resource
+Frame "FRAME" "myBackpackResource"{
+
+	//gold
+	Frame "BACKDROP" "myBackpResGoldIcon"{
+		Width 0.015,
+		Height 0.015,
+		SetPoint TOPLEFT, "myBackpackResource", TOPLEFT, 0.02,-0.01,
+
+		BackdropBlendAll,
+		BackdropBackground  "img\ui\gold.blp",
+
+		Frame "TEXT" "myBackpResGoldValue" INHERITS "MyResourceTextTemplate"{
+			SetPoint LEFT, "myBackpResGoldIcon",LEFT, 0.015,0.00,
+		}
+	}
+
+	//lumber
+	Frame "BACKDROP" "myBackpResLumberIcon"{
+		Width 0.015,
+		Height 0.015,
+		SetPoint LEFT, "myBackpackResource", LEFT, 0.02,-0.017,
+
+		BackdropBlendAll,
+		BackdropBackground  "img\ui\jewel.blp",
+
+		Frame "TEXT" "myBackpResLumberValue" INHERITS "MyResourceTextTemplate"{
+			SetPoint LEFT, "myBackpResLumberIcon",LEFT, 0.015,0.00,
+		}
+	}
+	//keepup
+	
+}
+
+//backpack destroyDialog
+Frame "BACKDROP" "myBackpDestroy"{
+	Width 0.18,
+    Height 0.07,
+
+    BackdropTileBackground,
+	BackdropBlendAll,
+	BackdropBackground  "UI\Widgets\EscMenu\Human\human-options-menu-background.blp",
+	BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+	BackdropEdgeFile  "UI\Widgets\EscMenu\Human\human-options-menu-border.blp",
+	BackdropCornerSize  0.0225,
+	BackdropBackgroundInsets 0.005 0.005 0.005 0.005,
+	BackdropBackgroundSize 0.256,
+	
+
+	Frame "TEXT" "myBackpDestroyText" INHERITS "EscMenuButtonTextTemplate" {
+        SetPoint TOP, "myBackpDestroy", TOP, 0.0, -0.01,
+        Text "确定要摧毁物品吗？",
+    }
+
+	Frame "GLUETEXTBUTTON" "myBackpDestroyBtn1" INHERITS WITHCHILDREN "EscMenuButtonTemplate" {
+		Width 0.08,
+    	Height 0.03,
+        SetPoint BOTTOMRIGHT, "myBackpDestroy", BOTTOM, -0.0003, 0.006,
+        ButtonText "myBackpDestroyBtn1Text",
+        Frame "TEXT" "myBackpDestroyBtn1Text" INHERITS "EscMenuButtonTextTemplate" {
+            Text "确定",
+        }
+    }
+
+	Frame "GLUETEXTBUTTON" "myBackpDestroyBtn2" INHERITS WITHCHILDREN "EscMenuButtonTemplate" {
+		Width 0.08,
+    	Height 0.03,
+        SetPoint BOTTOMLEFT, "myBackpDestroy", BOTTOM, 0.0003,0.006,
+        ButtonText "myBackpDestroyBtn2Text",
+        Frame "TEXT" "myBackpDestroyBtn2Text" INHERITS "EscMenuButtonTextTemplate" {
+            Text "取消",
+        }
+    }
+	
+}
+
+//backpack SeparateDialog  背包-分离物品滑动框
+Frame "BACKDROP" "myBackpSeparate"{
+	Width 0.18,
+    Height 0.12,
+
+	BackdropTileBackground,
+	BackdropBlendAll,
+	BackdropBackground  "UI\Widgets\EscMenu\Human\human-options-menu-background.blp",
+	BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+	BackdropEdgeFile  "UI\Widgets\EscMenu\Human\human-options-menu-border.blp",
+	BackdropCornerSize  0.0225,
+	BackdropBackgroundInsets 0.005 0.005 0.005 0.005,
+	BackdropBackgroundSize 0.256,
+
+	Frame "TEXT" "myBackpSeparateTitle"  INHERITS "EscMenuButtonTextTemplate" {
+		Height 0.03,
+		Width 0.1,
+		SetPoint TOP, "myBackpSeparate", TOP, 0.004,-0.005,
+		Text "分离物品",
+	}
+
+	Frame "TEXT" "myBackpSeparateText" INHERITS "EscMenuButtonTextTemplate" {
+		Height 0.03,
+		Width 0.06,
+		SetPoint TOPLEFT, "myBackpSeparate", TOPLEFT, 0.004,-0.025,
+		Text "设置数量",
+	}
+
+	Frame "BACKDROP" "myBackpSeparateTextDrop"{
+		Height 0.02,
+		Width 0.02,
+		SetPoint LEFT, "myBackpSeparateText", RIGHT, 0.0015,-0.0028,
+
+		BackdropTileBackground,
+		BackdropBlendAll,
+		BackdropBackground  "UI\Widgets\EscMenu\Human\human-options-menu-background.blp",
+		BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+		BackdropEdgeFile  "UI\Widgets\ToolTips\Human\human-tooltip-border.blp",
+		BackdropCornerSize  0.009,
+		BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
+		BackdropBackgroundSize 0.256,
+
+		Frame "TEXT" "myBackpSeparateTextValue" INHERITS "EscMenuButtonTextTemplate"{
+			SetAllPoints,
+			FontJustificationOffset 0.0 0.0008,
+			FontColor 1.0 1.0 1.0 1.0,
+			Text "99",
+		}
+	}
+
+	Frame "SLIDER" "myBackpSeparateSlider"{
+		Height 0.016,
+		Width 0.16,
+		
+		SliderMinValue 0,
+		SliderMaxValue 1,
+		SliderInitialValue 0,
+		SliderStepSize 0.01,
+    	SliderLayoutHorizontal,
+		SetPoint TOP, "myBackpSeparate", TOP, 0, -0.06,
+	
+		ControlBackdrop "myBackpSeparateSliderDrop",
+		Frame "BACKDROP" "myBackpSeparateSliderDrop" {
+			BackdropTileBackground,
+			BackdropBackground  "UI\Widgets\Glues\GlueScreen-Slider-BackdropBackground.blp",
+			BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+			BackdropCornerSize  0.008,
+			BackdropBackgroundInsets 0.004 0.004 0.004 0.004,
+			BackdropEdgeFile  "UI\Widgets\Glues\GlueScreen-Slider-BackdropBorder.blp",
+			BackdropBlendAll,
+		}
+
+		SliderThumbButtonFrame "myBackpSeparateSliderBtn",
+		Frame "BUTTON" "myBackpSeparateSliderBtn" {
+			Width 0.016,
+			Height 0.016,
+
+			ControlBackdrop "myBackpSeparateSliderBtnDrop",
+			Frame "BACKDROP" "myBackpSeparateSliderBtnDrop" {
+				BackdropBlendAll,
+				BackdropBackground  "UI\Widgets\Glues\SinglePlayerSkirmish-ScrollBarKnob.blp",
+			}
+
+			ControlDisabledBackdrop "myBackpSeparateSliderBtnDisDrop",
+			Frame "BACKDROP" "myBackpSeparateSliderBtnDisDrop" {
+				BackdropBlendAll,
+				BackdropBackground  "UI\Widgets\Glues\SinglePlayerSkirmish-ScrollBarKnobDisabled.blp",
+			}
+		}
+	}
+
+	Frame "GLUETEXTBUTTON" "myBackpSeparateBtn1" INHERITS WITHCHILDREN "EscMenuButtonTemplate" {
+		Width 0.08,
+    	Height 0.03,
+        SetPoint BOTTOMRIGHT, "myBackpSeparate", BOTTOM, -0.0003, 0.006,
+        ButtonText "myBackpSeparateBtn1Text",
+        Frame "TEXT" "myBackpSeparateBtn1Text" INHERITS "EscMenuButtonTextTemplate" {
+            Text "确定",
+        }
+    }
+
+	Frame "GLUETEXTBUTTON" "myBackpSeparateBtn2" INHERITS WITHCHILDREN "EscMenuButtonTemplate" {
+		Width 0.08,
+    	Height 0.03,
+        SetPoint BOTTOMLEFT, "myBackpSeparate", BOTTOM, 0.0003,0.006,
+        ButtonText "myBackpSeparateBtn2Text",
+        Frame "TEXT" "myBackpSeparateBtn2Text" INHERITS "EscMenuButtonTextTemplate" {
+            Text "取消",
+        }
+    }
+}
+
+//=====================skill 界面中下部分 技能框===================
+// skill drop
+Frame "BACKDROP" "mySkillDrop"{
+	Height 0.03657,
+	Width  0.03657,
+	BackdropBlendAll,
+	BackdropBackground  "img\ui\skillDrop.blp",
+
+	//技能文字
+	Frame "TEXT" "mySkillDropChildText" {
+		SetAllPoints,
+		DecorateFileNames,
+		FrameFont "MasterFont", 0.0065,"",
+		FontJustificationH JUSTIFYCENTER,
+		FontJustificationV JUSTIFYBOTTOM,
+		Text "天赋",
+	}
+}
+
+//skill drop simple
+Frame "SIMPLEFRAME" "mySkillDrop1"{
+	Height 0.03657,
+	Width  0.03657,
+
+	Texture "mySkillDrop1ChildTexture"{
+		SetAllPoints,
+		AlphaMode "ALPHAKEY",
+		File "img\ui\skillDrop.blp",
+	}
+
+	String "mySkillDrop1ChildText"{
+		SetAllPoints,
+		DecorateFileNames,
+		FrameFont "MasterFont", 0.0065,"",
+		FontJustificationH JUSTIFYCENTER,
+		FontJustificationV JUSTIFYBOTTOM,
+		//Text "1",
+	}
+}
+
+//skill title 
+Frame "BACKDROP" "mySkillTitle"{
+	Height 0.03657,
+	Width  0.008,
+
+	BackdropBlendAll,
+	BackdropBackground  "img\ui\skillTitle.blp",
+
+	//技能文字
+	Frame "TEXT" "mySkillTitleChildText" {
+		SetAllPoints,
+		DecorateFileNames,
+		FrameFont "MasterFont", 0.0085,"",
+		FontFlags "FIXEDSIZE",
+		Text "|n宝具",
+	}
+}
+
+//skill title simple
+Frame "SIMPLEFRAME" "mySkillTitle1"{
+	Height 0.03657,
+	Width  0.008,
+	
+	Texture "mySkillTitle1ChildTexture"{
+		SetAllPoints,
+		AlphaMode "ALPHAKEY",
+		File "img\ui\skillTitle.blp",
+	}
+	
+	String "mySkillTitle1ChildText"{
+		SetAllPoints,
+		DecorateFileNames,
+		FrameFont "MasterFont", 0.0065,"",
+		FontFlags "FIXEDSIZE",
+		//Text "物品栏",
+	}
+}
+
+//=====================card 抽卡界面======================
+//抽卡界面背景边框
+Frame "BACKDROP" "myCardDrop"{
+	Width 0.4,
+	Height 0.3,
+
+	BackdropTileBackground,
+	BackdropBackground  "UI\Widgets\ToolTips\Human\human-tooltip-background.blp",
+	BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+	BackdropCornerSize  0.010,
+	BackdropBackgroundSize  0.032,
+	BackdropBackgroundInsets 0.003f 0.003f 0.003f 0.003f,
+	BackdropEdgeFile  "UI\Widgets\ToolTips\Human\human-tooltip-border.blp",
+	BackdropBlendAll,
+	Frame "TEXT" "myCardTitle" INHERITS "BattleNetButtonTextTemplate"{
+		SetPoint TOP, "myCardDrop", TOP, 0, -0.02,
+		Text "抽取一张卡牌",
+	}
+
+	//back btn
+	Frame "TEXTBUTTON" "myCardDropBackBtn"{
+		Width 0.05,
+		Height 0.02,
+		SetPoint BOTTOMRIGHT, "myCardDrop", BOTTOM, -0.02, 0.02,
+
+		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+
+		ControlBackdrop "myCardDropBackBtnDrop",
+		Frame "BACKDROP" "myCardDropBackBtnDrop"
+		{
+			SetAllPoints,
+			BackdropBackground "img\ui\bank\btn.blp",
+			BackdropBlendAll,
+		}
+
+		ControlMouseOverHighlight "myCardDropBackBtn_Hig",
+		Frame "HIGHLIGHT" "myCardDropBackBtn_Hig" {
+			HighlightType "FILETEXTURE",
+			HighlightAlphaFile "UI\Widgets\EscMenu\Human\quest-button-highlight.blp",
+			HighlightAlphaMode "ADD",
+		}
+
+		ButtonText "myCardDropBackBtnText",
+		Frame "TEXT" "myCardDropBackBtnText" INHERITS "EscMenuButtonTextTemplate"{
+			SetAllPoints,
+			DecorateFileNames,
+			FontJustificationOffset 0.0 0,
+			FontHighlightColor 0.99 0.827 0.0705 1.0,
+			FrameFont "MasterFont", 0.010, "",
+			Text "返回",
+		}
+	}
+
+	//exit btn
+	Frame "TEXTBUTTON" "myCardDropExitBtn"{
+		Width 0.05,
+		Height 0.02,
+		SetPoint BOTTOMLEFT, "myCardDrop", BOTTOM, 0.02, 0.02,
+
+
+		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+		ControlBackdrop "myCardDropExitBtnDrop",
+		Frame "BACKDROP" "myCardDropExitBtnDrop"
+		{
+			SetAllPoints,
+			BackdropBackground "img\ui\bank\btn.blp",
+			BackdropBlendAll,
+		}
+
+		ControlMouseOverHighlight "myCardDropExitBtn_Hig",
+		Frame "HIGHLIGHT" "myCardDropExitBtn_Hig" {
+			HighlightType "FILETEXTURE",
+			HighlightAlphaFile "UI\Widgets\EscMenu\Human\quest-button-highlight.blp",
+			HighlightAlphaMode "ADD",
+		}
+
+		ButtonText "myCardDropExitBtnText",
+		Frame "TEXT" "myCardDropExitBtnText" INHERITS "EscMenuButtonTextTemplate"{
+			SetAllPoints,
+			DecorateFileNames,
+			FontJustificationOffset 0.0 0,
+			FontHighlightColor 0.99 0.827 0.0705 1.0,
+			FrameFont "MasterFont", 0.010, "",
+			Text "退出",
+		}
+	}
+}
+
+//抽卡界面 第二个界面 
+Frame "FRAME" "myCardDrop1"{
+	Width 0.4,
+	Height 0.2,
+	SetPoint TOP,"myCardDrop",TOP,0,0,
+
+	Frame "TEXT" "myCardTip1" INHERITS "BattleNetButtonTextTemplate"{
+		SetPoint TOPLEFT, "myCardDrop1", TOPLEFT, 0.02, -0.02,
+		Text "已选卡牌：",
+	}
+
+	Frame "BACKDROP" "myCardTip2" {
+		Width 0.06,
+		Height 0.14,
+		SetPoint TOPLEFT ,"myCardTip1",TOPLEFT, 0,0,
+		BackdropBlendAll,
+	}
+
+	Frame "TEXT" "myCardTip3" INHERITS "BattleNetButtonTextTemplate"{
+		SetPoint TOPLEFT ,"myCardTip2",BOTTOMLEFT, 0,-0.02,
+		DecorateFileNames,
+		FrameFont "MasterFont", 0.01, "",
+		Text "类型:天赋卡牌",
+	}
+
+	Frame "TEXT" "myCardTip4" INHERITS "BattleNetButtonTextTemplate"{
+		SetPoint TOP, "myCardDrop1", TOP, 0, -0.02,
+		Text "选择一个位置放入",
+	}
+
+	Frame "TEXT" "myCardTip5" INHERITS "BattleNetButtonTextTemplate"{
+		SetPoint TOPLEFT, "myCardTip2", TOPRIGHT, 0.02, -0.03,
+		Text "宝具:",
+	}
+
+	Frame "TEXT" "myCardTip6" INHERITS "BattleNetButtonTextTemplate"{
+		SetPoint TOP, "myCardTip5", TOP, 0, -0.065,
+		Text "天赋:",
+	}
+
+	Frame "TEXT" "myCardTip7" INHERITS "BattleNetButtonTextTemplate"{
+		SetPoint TOP, "myCardTip6", TOP, 0, -0.065,
+		Text "技能:",
+	}
+
+	Frame "BACKDROP" "myCardPoint" {
+		Width 0.015,
+		Height 0.02,
+		//SetPoint BOTTOM, "myCardTip5",TOP, 0,0,
+		BackdropBlendAll,
+		BackdropBackground  "img\ui\card_point.blp",
+	}
+}
+
+//抽卡界面 第一个界面 预览4张卡牌
+Frame "FRAME" "myCardPreview" {
+	Width 0.4,
+	Height 0.2,
+	SetPoint TOP,"myCardDrop",TOP,0,0,
+
+	Frame "FRAME" "myCardPreview_Card1" {
+		Width 0.062,
+		Height 0.1653,
+		SetPoint TOPLEFT,"myCardPreview",TOPLEFT,0.032,-0.035,
+
+		Frame "BACKDROP" "myCardPreview_Card1Drop" {
+			Width 0.06,
+			Height 0.1633,
+			SetPoint CENTER,"myCardPreview_Card1",CENTER,0,0,
+
+			Frame "BUTTON" "myCardPreview_Card1_BTN"{
+				SetAllPoints,
+			}
+		}
+
+		Frame "SPRITE" "myCardPreview_Card1_Hig" {
+			SetAllPoints,
+			BackgroundArt "ui\feedback\CardBackLight\cardBackLight.mdx",
+		}
+	}
+
+	Frame "FRAME" "myCardPreview_Card2" {
+		Width 0.062,
+		Height 0.1653,
+		SetPoint TOP,"myCardPreview",TOP,0.045,-0.035,
+
+		Frame "BACKDROP" "myCardPreview_Card2_Hig" {
+			SetAllPoints,
+		}
+
+		Frame "BACKDROP" "myCardPreview_Card2Drop" {
+			Width 0.06,
+			Height 0.1633,
+			SetPoint CENTER,"myCardPreview_Card2",CENTER,0,0,
+
+			Frame "BUTTON" "myCardPreview_Card2_BTN"{
+				SetAllPoints,
+			}
+		}
+	}
+
+	Frame "FRAME" "myCardPreview_Card3" {
+		Width 0.062,
+		Height 0.1653,
+		SetPoint TOP,"myCardPreview",TOP,-0.045,-0.035,
+
+		Frame "BACKDROP" "myCardPreview_Card3_Hig" {
+			SetAllPoints,
+		}
+
+		Frame "BACKDROP" "myCardPreview_Card3Drop" {
+			Width 0.06,
+			Height 0.1633,
+			SetPoint CENTER,"myCardPreview_Card3",CENTER,0,0,
+
+			Frame "BUTTON" "myCardPreview_Card3_BTN"{
+				SetAllPoints,
+			}
+		}
+	}
+
+	Frame "FRAME" "myCardPreview_Card4" {
+		Width 0.062,
+		Height 0.1653,
+		SetPoint TOPRIGHT,"myCardPreview",TOPRIGHT,-0.032,-0.035,
+
+		Frame "BACKDROP" "myCardPreview_Card4_Hig" {
+			SetAllPoints,
+		}
+
+		Frame "BACKDROP" "myCardPreview_Card4Drop" {
+			Width 0.06,
+			Height 0.1633,
+			SetPoint CENTER,"myCardPreview_Card4",CENTER,0,0,
+
+			Frame "BUTTON" "myCardPreview_Card4_BTN"{
+				SetAllPoints,
+			}
+		}
+	}
+}
+
+//=========================仿lol界面=====================
+//菜单文本
+Frame "TEXT" "Task" INHERITS "BattleNetButtonTextTemplate" {}
+
+//物品栏标题文本
+Frame "TEXT" "BagTitle" INHERITS "BattleNetButtonTextTemplate" {
+    Text "物品栏",
+}
+
+//血量文本
+Frame "TEXT" "BarText" INHERITS "BattleNetButtonTextTemplate" {
+    FontJustificationH JUSTIFYCENTER,
+    FontJustificationV JUSTIFYMIDDLE,
+    FontFlags "FIXEDSIZE",
+    FontHighlightColor 1.0 1.0 1.0 1.0,
+    FontDisabledColor 0.2 0.2 0.2 1.0,
+	FontShadowColor 0.0 0.0 0.0 0.9,	
+    FontShadowOffset 0.001 -0.001,
+	DecorateFileNames,
+	FrameFont "MasterFont", 0.01, "",
+    Text "0/0",
+}
+
+//血条标题文本
+Frame "TEXT" "BarTitleText"{
+	Height 0,
+	Width 0,
+ 	FontJustificationH JUSTIFYCENTER,
+    FontJustificationV JUSTIFYMIDDLE,
+	DecorateFileNames,
+	FontFlags "FIXEDSIZE",
+	FrameFont "MasterFont", 0.01, "",
+	FontHighlightColor 1.0 1.0 1.0 1.0,
+    FontDisabledColor 0.2 0.2 0.2 1.0,
+	FontShadowColor 0.0 0.0 0.0 0.9,	
+    FontShadowOffset 0.001 -0.001,
+}
+
+//血条
+Frame "BACKDROP" "HpBar"{
+    Height 0.02,
+    Width 0.22,
+	BackdropBackground  "img\alpha.blp",
+	BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+	BackdropCornerSize  0.010,
+	BackdropBackgroundSize  0.032,
+	BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
+	BackdropEdgeFile  "img\ui_new\human-tooltip-border.blp",
+	BackdropBlendAll,
+	
+    Frame "BACKDROP" "HpFill"{
+        Height 0.0134,
+        Width 0.2135,
+		SetPoint TOPLEFT,"HpBar",TOPLEFT,0.003,-0.003,
+        BackdropTileBackground,
+	    BackdropBackground  "img\ui_new\UI_HpFill.blp",
+    }
+
+	Frame "TEXT" "HpBarText" INHERITS "BarText"{
+		SetAllPoints,
+		FontColor 0.3 0.99 0.3 1.0,
+	}
+
+	Frame "TEXT" "HpBarTitle" INHERITS "BarTitleText"{
+		SetPoint RIGHT,"HpBar",LEFT,0,0,
+		Text "生命:",
+	}
+}
+
+//蓝条
+Frame "BACKDROP" "MpBar"{
+    Height 0.02,
+    Width 0.22,
+	BackdropBackground  "img\alpha.blp",
+	BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+	BackdropCornerSize  0.010,
+	BackdropBackgroundSize  0.032,
+	BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
+	BackdropEdgeFile  "img\ui_new\human-tooltip-border.blp",
+	BackdropBlendAll,
+	SetPoint TOP, "HpBar", BOTTOM,0,-0.0002,
+	
+    Frame "BACKDROP" "MpFill"{
+        Height 0.0134,
+        Width 0.2135,
+		SetPoint TOPLEFT,"MpBar",TOPLEFT,0.003,-0.003,
+        BackdropTileBackground,
+	    BackdropBackground  "img\ui_new\UI_MpFill.blp",
+    }
+
+	Frame "TEXT" "MpBarText" INHERITS "BarText"{
+		SetAllPoints,
+		FontColor 0.3 0.3 0.99 1.0,
+	}
+
+	Frame "TEXT" "MpBarTitle" INHERITS "BarTitleText"{
+		SetPoint RIGHT,"MpBar",LEFT,0,0,
+		Text "魔法:",
+	}
+}
+
+//经验条
+Frame "BACKDROP" "ExpBar"{
+    Height 0.02,
+    Width 0.22,
+	BackdropBackground  "img\alpha.blp",
+	BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+	BackdropCornerSize  0.010,
+	BackdropBackgroundSize  0.032,
+	BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
+	BackdropEdgeFile  "img\ui_new\human-tooltip-border.blp",
+	BackdropBlendAll,
+	SetPoint TOP, "MpBar", BOTTOM,0,-0.0002,
+	
+    Frame "BACKDROP" "ExpFill"{
+        Height 0.0134,
+        Width 0.2135,
+		SetPoint TOPLEFT,"ExpBar",TOPLEFT,0.003,-0.003,
+        BackdropTileBackground,
+	    BackdropBackground  "img\ui_new\UI_ExpFill.blp",
+    }
+
+	Frame "TEXT" "ExpBarText" INHERITS "BarText"{
+		SetAllPoints,
+	}
+
+	Frame "TEXT" "ExpBarTitle" INHERITS "BarTitleText"{
+		SetPoint RIGHT,"ExpBar",LEFT,0,0,
+		Text "经验:",
+	}
+}
+
+//头像背景
+Frame "BACKDROP" "HeadBG"{
+	Width 0.252,
+    Height 0.110,
+
+	BackdropBlendAll,
+	BackdropBackground  "img\ui_new\UI_HeadBG.blp",
+}
+
+//大头像框
+Frame "BACKDROP" "HeadBorder"{
+	Width 0.06,
+    Height 0.025,
+
+	BackdropTileBackground,
+	BackdropBackground  "img\alpha.blp",
+	BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+	BackdropCornerSize  0.010,
+	BackdropBackgroundSize  0.032,
+	BackdropBackgroundInsets 0.003f 0.003f 0.003f 0.003f,
+	BackdropEdgeFile  "UI\Widgets\ToolTips\Human\human-tooltip-border.blp",
+	BackdropBlendAll,
+
+	Frame "TEXT" "UnitNameText" {
+		Width 0.06,
+		Height 0.025,
+
+		SetPoint TOP, "HeadBorder" , TOP, 0,0,
+		DecorateFileNames,
+		FontFlags "FIXEDSIZE",
+		FrameFont "MasterFont", 0.014, "",
+		FontJustificationH JUSTIFYCENTER,
+		FontJustificationV JUSTIFYMIDDLE,
+		FontHighlightColor 1.0 1.0 1.0 1.0,
+		FontDisabledColor 0.2 0.2 0.2 1.0,
+		FontShadowColor 0.0 0.0 0.0 0.9,	
+		FontShadowOffset 0.001 -0.001,
+		Text "名字",
+	}
+
+	Frame "BACKDROP" "HeadBorderInner"{
+		Width 0.06,
+		Height 0.06,
+
+		SetPoint TOP, "HeadBorder" , BOTTOM, 0,0,
+		BackdropTileBackground,
+		BackdropBackground  "img\alpha.blp",
+		BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+		BackdropCornerSize  0.010,
+		BackdropBackgroundSize  0.032,
+		BackdropBackgroundInsets 0.003f 0.003f 0.003f 0.003f,
+		BackdropEdgeFile  "UI\Widgets\ToolTips\Human\human-tooltip-border.blp",
+		BackdropBlendAll,
+	}
+}
+
+//中央控制台
+Frame "BACKDROP" "HpMpBG"{
+	Width  0.32,
+	Height  0.30,
+
+	BackdropBlendAll,
+	BackdropBackground  "img\ui_new\UI_HpBackGround.blp",
+}
+
+//小地图边框
+Frame "BACKDROP" "MapBG"{
+	Width 0.13,
+	Height 0.12,
+	BackdropBlendAll,
+	BackdropBackground  "img\ui_new\UI_MapBG.blp",
+}
+
+//背包按钮边框123456 天赋按钮边框1234
+Frame "BACKDROP" "BagBG"{
+    Height 0.02484,
+    Width 0.02484,
+	BackdropBlendAll,
+	BackdropBackground  "img\ui_new\UI_ItemBorder.blp",
+}
+
+//技能按钮QWER
+Frame "BACKDROP" "SkillBG"{
+    Height 0.03,
+    Width 0.03,
+	BackdropBlendAll,
+	BackdropBackground  "img\ui_new\UI_ItemBorder.blp",
+}
+
+//技能按钮快捷键文字
+Frame "TEXT" "SkillBGKey" INHERITS "BattleNetButtonTextTemplate"{
+	Height 0,
+	Width 0,
+	DecorateFileNames,
+	FontFlags "FIXEDSIZE",
+	FrameFont "MasterFont", 0.009, "",
+	FontShadowOffset 0.0005 -0.0005,
+	FontJustificationH JUSTIFYLEFT,
+	FontJustificationV JUSTIFYTOP,
+}
+
+//宝具按钮
+Frame "BACKDROP" "CardBG"{
+    Height 0.03,
+    Width 0.03,
+	BackdropBlendAll,
+	BackdropBackground  "img\ui_new\UI_ItemBorder.blp",
+}
+
+Frame "BACKDROP" "CardNumBG"{
+	Height 0.013,
+	Width 0.013,
+	BackdropBlendAll,
+	BackdropBackground  "UI\Widgets\Console\Human\CommandButton\human-button-lvls-overlay.blp",
+}
+
+Frame "TEXT" "CardNumText" {
+	Height 0,
+	Width 0,
+	DecorateFileNames,
+	FontFlags "FIXEDSIZE",
+	FrameFont "MasterFont", 0.007, "",
+	FontShadowOffset 0.0005 -0.0005,
+	FontJustificationV JUSTIFYMIDDLE,
+	FontJustificationH JUSTIFYCENTER,
+}
+
+//=================上方boss血条================================
+Frame "BACKDROP" "Topaim" {
+	Width 0.035,
+	Height 0.035,
+
+	BackdropBlendAll,
+
+	Frame "TEXT" "TopaimName" {
+		SetPoint TOP, "Topaim", BOTTOM, 0,-0.002,
+		Text "名字",
+	}
+
+	//hp bar
+	Frame "BACKDROP" "TopaimHpfillBG"{
+		Width 0.3,
+		Height 0.01,
+		BackdropBackground "img\black.blp",
+		SetPoint TOPLEFT, "Topaim", TOPRIGHT, 0.02,-0.01,
+
+		Frame "BACKDROP" "TopaimHpfill"{
+			Width 0.3,
+			Height 0.01,
+			SetPoint TOPLEFT, "TopaimHpfillBG", TOPLEFT, 0,0,
+			BackdropBlendAll,
+			BackdropBackground "img\ui_new\UI_HpFill.blp",
+		}
+
+		Frame "TEXT" "TopaimHPtext" INHERITS "BarText"{
+			SetAllPoints,
+			FontColor 0.3 0.99 0.3 1.0,
+			Text "0/0",
+		}
+	}
+
+	//map bar
+	Frame "BACKDROP" "TopaimMpfillBG"{
+		Width 0.3,
+		Height 0.01,
+		BackdropBackground "img\black.blp",
+		SetPoint TOP, "TopaimHpfillBG", BOTTOM, 0, -0.01,
+
+		Frame "BACKDROP" "TopaimMpfill"{
+			Width 0.1,
+			Height 0.01,
+			BackdropBlendAll,
+			BackdropBackground "img\ui_new\UI_MpFill.blp",
+			SetPoint TOPLEFT, "TopaimMpfillBG", TOPLEFT, 0,0,
+		}
+		Frame "TEXT" "TopaimMPtext" INHERITS "BarText"{
+			SetAllPoints,
+			FontColor 0.3 0.3 0.99 1.0,
+			Text "0/0",
+		}
+	}
+}
