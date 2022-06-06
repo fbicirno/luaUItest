@@ -1,7 +1,7 @@
 @echo off
 cd /d %~dp0
-::填写路径设置
-set ydwePath=/d D:\War3\YDWE1319MZ
+
+set ydwePath=D:\War3\YDWE1319MZ
 set lniPath=/d D:\w3xlni
 set mapName=%~n1
 
@@ -19,5 +19,3 @@ move "%mapPath%.w3x" "%ydwePath%\%mapName%.w3x"
 bin\ydweconfig.exe -launchwar3
 bin\ydweconfig.exe -launchwar3
 )
-
-::-auto是自动进房。 
